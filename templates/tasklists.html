@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} TaskLists {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h5>Task Lists:</h5>
+    <div class="jumbotron mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tasklist in tasklists %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ tasklist['name'] }}</td>
+                    <td>{{ tasklist['last_updated'] }}</td>
+                    <td>{{ tasklist['created_at'] }}</td>
+                    {% set tasklist_id = tasklist['_id'] %}
+                    <td>
+                        <a href="/tasks/{{ tasklist_id }}" class="btn btn-secondary" type="submit" role="button"><i class="far fa-eye"></i></a>
+                        <a href="/tasklist/delete/{{ tasklist_id }}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-trash"></i></a>
+                        <a href="/tasklist/edit/{{ tasklist_id }}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-user-edit"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <center>
+            <a href="/tasklist/create" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>Create New TaskList</a>
+        </center>
+    </div>
+</div>
+
+{% endblock %}

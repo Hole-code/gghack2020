@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Tasks{% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h5>Tasks:</h5>
+    <div class="jumbotron mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Отправить человека</th>
+                    <th scope="col">Отправить машину</th>
+                    <th scope="col">Это ошибка</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ task['name'] }}</td>
+                    <td>{{ task['last_updated'] }}</td>
+                    <td>{{ task['created_at'] }}</td>                    
+                    <td>{{ task['description'] }}</td>
+                    {% set task_id = task['_id'] %}
+                    <!--- TODO --->
+                    <td><a href="/task/delete/{{ task_id }}" class="btn btn-secondary" type="submit" role="button">Отправить человека</a></td>
+                    <td><a href="/task/delete/{{ task_id }}" class="btn btn-secondary" type="submit" role="button">Это машину</a></td>
+                    <td><a href="/task/delete/{{ task_id }}" class="btn btn-secondary" type="submit" role="button">Это ошибка</a></td>
+                    <!--- TODO --->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <center>
+            <a href="/task/create/{{ tasklist_id }}" class="btn btn-secondary" type="submit" role="button"><i class="fas fa-plus"></i>Create New Task</a>
+        </center>
+    </div>
+</div>
+{% endblock %}

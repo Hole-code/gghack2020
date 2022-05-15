@@ -1,0 +1,31 @@
+{
+  "sessions": [
+    {
+      "id": "290561482:290561482",
+      "data": {
+        "__scenes": {
+          "current": "distribution",
+          "state": {}
+        }
+      }
+    },
+    {
+      "id": "1954490640:1954490640",
+      "data": {
+        "__scenes": {
+          "current": "distribution",
+          "state": {}
+        }
+      }
+    },
+    {
+      "id": "387111625:387111625",
+      "data": {
+        "__scenes": {
+          "current": "distribution",
+          "state": {}
+        }
+      }
+    }
+  ]
+}
